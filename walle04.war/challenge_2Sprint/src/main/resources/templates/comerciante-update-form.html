@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="_template :: head"></head>
+<body>
+
+	<h1>Walle</h1>
+	
+	<section class="card form">
+		<h2>Atualizar Produto</h2>
+		
+	<form action="#" 
+  		th:action="@{{id}(id=${comerciante.id})}" 
+ 		th:object="${comerciante}" 
+  		method="post">
+    		<label  for="title">Titulo</label>
+<!--    			<input type="text" id="title" th:value="${comerciante.title}"> -->
+<!-- 			<input  -->
+<!-- 				type="text"  -->
+<!-- 				name="title"  -->
+<!-- 				id="title"  -->
+<!-- 				th:field="*{title}" -->
+<!-- 				th:value="${title}" -->
+<!-- 				th:classappend="${#fields.hasErrors('title')}?invalid"			  -->
+<!-- 			/> -->
+			<input type="text" th:field="*{title}" id="title" value="${title}">
+    		<span class="error" th:errors="*{title}"></span>
+    		<label for="description">Descrição</label>
+    		<input type="text" th:field="*{description}" id="description" value="${description}">
+    <span class="error"  th:errors="*{description}"></span>
+    	<input type="submit" value="Update Comerciante">   
+	</form>
+	</section>
+
+</body>
+</html>
